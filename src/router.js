@@ -11,7 +11,14 @@ export default new Router({
     {
       path: '/',
       name: 'board',
-      component: Board
+      component: Board,
+      children: [
+        {
+          path: 'task/:id',
+          name: 'task',
+          component: () => import('./views/Task.vue')
+        }
+      ]
     }
   ]
 })
